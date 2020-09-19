@@ -14,4 +14,8 @@
 
 <style>
 	/*每个页面公共css */
+	/* 引入全局样式 */
+	@import './styles/base.wxss';
+	/* 引入字体图标库 */
+	@import './styles/iconfont.wxss';
 </style>

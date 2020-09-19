@@ -1,6 +1,7 @@
 <template>
 	<view>
 		首页
+		<view class="iconfont iconvideocamera"></view>
 	</view>
 </template>
 
