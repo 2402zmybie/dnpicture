@@ -45,3 +45,13 @@
 原理 transform: translateY(-50%); 让div 沿Y轴平移自身高度的一半
 　　效果如图：
 
+
+4 uni-app封装请求
+ 为什么要封装: 
+	1 原生的请求不支持promise
+	2 uni-api的请求不能够方便的添加 请求中(loading)效果
+	3 uni-api的请求返回值是个数组,不方便
+ 封装思路:
+	1 基于原生的promise来封装
+	2 挂载到Vue的原型上
+	3 通过this.request的方式来使用
