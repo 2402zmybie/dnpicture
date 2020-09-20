@@ -1,13 +1,18 @@
 <template>
-	<view>
-		<uni-segmented-control 
-		:current="current" 
-		:values="items.map(v=> v.title)" 
-		@clickItem="onClickItem" 
-		style-type="text" 
-		active-color="#d4237a"
-		></uni-segmented-control>
-		<view class="content">
+	<view class="home-tab">
+		<view class="home-tab-title">
+			<view class="title-inner">
+				<uni-segmented-control
+				:current="current" 
+				:values="items.map(v=> v.title)" 
+				@clickItem="onClickItem" 
+				style-type="text" 
+				active-color="#d4237a"
+				></uni-segmented-control>
+			</view>
+			<view class="iconfont iconsearch"></view>
+		</view>
+		<view class="home-tab-content">
 			<view v-if="current === 0">
 				<home-recommend></home-recommend>
 			</view>
@@ -57,6 +62,23 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+.home-tab-title {
+	position: relative;
+	// 块级元素水平居中
+	.title-inner {
+		width: 60%;
+		margin: 0 auto;
+	}
+	// 块级元素定位并且垂直居中
+	.iconsearch {
+		position: absolute;
+		top: 50%;
+		right: 5%;
+		transform: translateY(-50%);
+	}
+}
+.home-tab-content {
+	
+}
 </style>

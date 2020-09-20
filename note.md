@@ -2,3 +2,46 @@
   要使用绝对路径,如
   @import './styles/iconfont.wxss';
 2 微信小程序不支持通配符, 故base.wxss中写法特殊
+
+3 
+水平居中和transform: translateY(-50%) 实现元素垂直居中效果
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直居中</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+     
+    .center {
+        width: 960px;
+        height: 500px;
+        margin: 0 auto;
+        background: #1879D9;
+    }
+     
+    .center p {
+        background: #fff;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <p>垂直居中内容</p>
+    </div>
+</body>
+</html>
+ 
+原理 transform: translateY(-50%); 让div 沿Y轴平移自身高度的一半
+　　效果如图：
+
