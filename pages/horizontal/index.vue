@@ -6,13 +6,11 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			
+		mounted() {
+			//修改页面的标题
+			uni.setNavigationBarTitle({
+				title:"横屏"
+			})
 		}
 	}
 </script>

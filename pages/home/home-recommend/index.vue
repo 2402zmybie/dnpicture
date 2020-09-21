@@ -57,6 +57,10 @@
 			}
 		},
 		mounted() {
+			//修改页面的标题
+			uni.setNavigationBarTitle({
+				title:"推荐"
+			})
 			this.getList()
 		},
 		methods:{
