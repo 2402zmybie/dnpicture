@@ -10,7 +10,7 @@ export default (params)=> {
 		uni.request({
 			...params,
 			success: (res) => {
-				resolve(res);
+				resolve(res.data);
 			},
 			fail(err) {
 				reject(err)
