@@ -1,5 +1,5 @@
 <template>
-	<view v-if="recommends.length > 0">
+	<scroll-view @scrolltolower="handleToLower" class="recommend-view" scroll-y v-if="recommends.length > 0">
 		<!-- 推荐列表 -->
 		<view class="recommend-list">
 			<view class="recommend-wrap" v-for="(item,index) in recommends" :key="item.id">
@@ -36,7 +36,7 @@
 				</view>
 			</view>
 		</view>
-	</view>
+	</scroll-view>
 </template>
 
 <script>
@@ -46,35 +46,75 @@
 			return {
 				recommends: [],
 				months:{},
-				hots:[]
-			}
-		},
-		mounted() {
-			this.request({
-				url:"http://157.122.54.189:9088/image/v3/homepage/vertical",
-				data: {
+				hots:[],
+				// 后期要修改的参数 提取出来 放在data中
+				params:{
 					limit:30,
 					order:"hot",
 					skip:0
-				}
-			})
-			.then((result)=> {
-				//推荐模块
-				this.recommends = result.res.homepage[1].items
-				//月份模块
-				this.months = result.res.homepage[2];
-				//将时间磋改成 18号/月 moment.js
-				this.months.MM = moment(this.months.stime).format("MM");
-				this.months.DD = moment(this.months.stime).format("DD");
-				//热门模块
-				this.hots = result.res.vertical
+				},
+				hasMore:true
+			}
+		},
+		mounted() {
+			this.getList()
+		},
+		methods:{
+			getList() {
+				this.request({
+					url:"http://157.122.54.189:9088/image/v3/homepage/vertical",
+					data: this.params
+				})
+				.then((result)=> {
+					//判断还有没有下一页的数据了
+					if(result.res.vertical.length === 0) {
+						this.hasMore = false;
+						return;
+					}
+					
+					if(this.recommends.length === 0) {
+						//推荐模块
+						this.recommends = result.res.homepage[1].items
+						//月份模块
+						this.months = result.res.homepage[2];
+						//将时间磋改成 18号/月 moment.js
+						this.months.MM = moment(this.months.stime).format("MM");
+						this.months.DD = moment(this.months.stime).format("DD");
+					}
 				
-			})
+					//热门模块(累加数组)
+					this.hots = [...this.hots, ...result.res.vertical]
+					
+				})
+			},
+			//上拉加载事件
+			handleToLower() {
+				/**
+				 * 1 修改参数 skip+=limit;
+				 * 2 重新发送请求
+				 * 3 请求回来成功 hots数据叠加
+				 */
+				if(this.hasMore) {
+					this.params.skip += this.params.limit;
+					this.getList()
+				}else {
+					uni.showToast({
+						title: '没有更多数据了',
+						icon:"none"
+					});
+				}
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	
+.recommend-view {
+	// 计算除了tab栏之外滚动区域的高度
+	height: calc( 100vh - 36px);
+}
+	
 .recommend-list {
 	display: flex;
 	flex-wrap: wrap;

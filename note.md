@@ -63,3 +63,10 @@
 		2 全局App中使用onLaunch表示应用启动时
 		3 页面中使用onLoad或者onShow分别表示 页面加载完毕时和页面显示时
 		4 组件 中使用 mounted组件挂在完毕时, 其他的没有效果
+		
+
+
+5 分页功能分析: 
+	1 使用scroll-view标签充当分页的容器
+	2 绑定滚动条触底事件 scrolltolower
+	3 实现分页逻辑
