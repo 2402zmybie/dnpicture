@@ -4,7 +4,8 @@
     "pages/horizontal/index",
     "pages/mine/index",
     "pages/search/index",
-    "pages/video/index"
+    "pages/video/index",
+    "pages/album/index"
   ],
   "subPackages": [],
   "window": {

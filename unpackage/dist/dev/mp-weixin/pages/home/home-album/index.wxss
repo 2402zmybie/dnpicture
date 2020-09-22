@@ -24,10 +24,68 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.album-scroll-view {
+  height: calc(100vh - 36px);
+}
 .album-swiper swiper {
   height: calc(750rpx / 2.3);
 }
 .album-swiper swiper image {
   height: 100%;
+}
+.album-list {
+  padding: 10rpx;
+}
+.album-list .album-item {
+  border-bottom: 1rpx solid #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 10rpx 0;
+}
+.album-list .album-item .item-left {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+}
+.album-list .album-item .item-left image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.album-list .album-item .item-right {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+          flex: 2;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+.album-list .album-item .item-right .item-right-top {
+  font-size: 32rpx;
+  padding: 10rpx 0;
+  color: #000000;
+}
+.album-list .album-item .item-right .item-right-middle {
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.album-list .album-item .item-right .item-right-bottom-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 10rpx 0;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.album-list .album-item .item-right .item-right-bottom-wrap .item-right-bottom {
+  font-size: 32rpx;
+  color: #d52a7e;
+  border: 1rpx solid #d52a7e;
+  padding: 10rpx;
 }
 

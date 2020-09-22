@@ -102,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniSegmentedControl: function() {
-    return __webpack_require__.e(/*! import() | components/uni-segmented-control/uni-segmented-control */ "components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/components/uni-segmented-control/uni-segmented-control.vue */ 44))
+    return __webpack_require__.e(/*! import() | components/uni-segmented-control/uni-segmented-control */ "components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/components/uni-segmented-control/uni-segmented-control.vue */ 50))
   }
 }
 var render = function() {
@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var homeAlbum = function homeAlbum() {__webpack_require__.e(/*! require.ensure | pages/home/home-album/index */ "pages/home/home-album/index").then((function () {return resolve(__webpack_require__(/*! ./home-album/index.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeCategory = function homeCategory() {__webpack_require__.e(/*! require.ensure | pages/home/home-category/index */ "pages/home/home-category/index").then((function () {return resolve(__webpack_require__(/*! ./home-category/index.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeNew = function homeNew() {__webpack_require__.e(/*! require.ensure | pages/home/home-new/index */ "pages/home/home-new/index").then((function () {return resolve(__webpack_require__(/*! ./home-new/index.vue */ 61));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeRecommend = function homeRecommend() {Promise.all(/*! require.ensure | pages/home/home-recommend/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/home/home-recommend/index")]).then((function () {return resolve(__webpack_require__(/*! ./home-recommend/index.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var homeAlbum = function homeAlbum() {__webpack_require__.e(/*! require.ensure | pages/home/home-album/index */ "pages/home/home-album/index").then((function () {return resolve(__webpack_require__(/*! ./home-album/index.vue */ 57));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeCategory = function homeCategory() {__webpack_require__.e(/*! require.ensure | pages/home/home-category/index */ "pages/home/home-category/index").then((function () {return resolve(__webpack_require__(/*! ./home-category/index.vue */ 64));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeNew = function homeNew() {__webpack_require__.e(/*! require.ensure | pages/home/home-new/index */ "pages/home/home-new/index").then((function () {return resolve(__webpack_require__(/*! ./home-new/index.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var homeRecommend = function homeRecommend() {Promise.all(/*! require.ensure | pages/home/home-recommend/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/home/home-recommend/index")]).then((function () {return resolve(__webpack_require__(/*! ./home-recommend/index.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -202,7 +202,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       { title: "最新" },
       { title: "专辑" }],
 
-      current: 0 };
+      current: 3 };
 
   },
   methods: {
