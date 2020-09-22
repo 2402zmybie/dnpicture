@@ -1170,7 +1170,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-uni-view", { attrs: { _i: 0 } }, [_vm._v("专辑")])
+  return _c(
+    "v-uni-view",
+    { attrs: { _i: 0 } },
+    [
+      _c(
+        "v-uni-swiper",
+        {
+          attrs: {
+            "indicator-dots": true,
+            autoplay: true,
+            interval: 3000,
+            duration: 1000,
+            _i: 1
+          }
+        },
+        _vm._l(_vm._$g(2, "f"), function(item, $10, $20, $30) {
+          return _c(
+            "v-uni-swiper-item",
+            { key: item, attrs: { _i: "2-" + $30 } },
+            [
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g("3-" + $30, "sc"),
+                  attrs: { _i: "3-" + $30 }
+                },
+                [
+                  _c("v-uni-image", {
+                    attrs: {
+                      src: _vm._$g("4-" + $30, "a-src"),
+                      mode: "widthFix",
+                      _i: "4-" + $30
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        }),
+        1
+      )
+    ],
+    1
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []

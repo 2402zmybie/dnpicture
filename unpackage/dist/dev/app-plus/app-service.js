@@ -514,7 +514,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view")
+  return _c("view", [
+    _c(
+      "swiper",
+      { attrs: { _i: 1 } },
+      _vm._l(_vm._$s(2, "f", { forItems: _vm.banner }), function(
+        item,
+        $10,
+        $20,
+        $30
+      ) {
+        return _c(
+          "swiper-item",
+          { key: _vm._$s(2, "f", { forIndex: $20, key: item.id }) },
+          [
+            _c(
+              "view",
+              {
+                staticClass: _vm._$s("3-" + $30, "sc", "swiper-item"),
+                attrs: { _i: "3-" + $30 }
+              },
+              [
+                _c("image", {
+                  attrs: {
+                    src: _vm._$s("4-" + $30, "a-src", item.thumb),
+                    _i: "4-" + $30
+                  }
+                })
+              ]
+            )
+          ]
+        )
+      }),
+      0
+    )
+  ])
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -542,7 +576,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _F_H
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\nvar _default =\n{\n  mounted: function mounted() {\n    //修改页面的标题\n    uni.setNavigationBarTitle({\n      title: \"专辑\" });\n\n  } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvaG9tZS9ob21lLWFsYnVtL2luZGV4LnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUtBO0FBQ0EsU0FEQSxxQkFDQTtBQUNBO0FBQ0E7QUFDQSxpQkFEQTs7QUFHQSxHQU5BLEUiLCJmaWxlIjoiMTcuanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+XHJcblx0PHZpZXc+5LiT6L6RPC92aWV3PlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdD5cclxuXHRleHBvcnQgZGVmYXVsdCB7XHJcblx0XHRtb3VudGVkKCkge1xyXG5cdFx0XHQvL+S/ruaUuemhtemdoueahOagh+mimFxyXG5cdFx0XHR1bmkuc2V0TmF2aWdhdGlvbkJhclRpdGxlKHtcclxuXHRcdFx0XHR0aXRsZTpcIuS4k+i+kVwiXHJcblx0XHRcdH0pXHJcblx0XHR9XHJcblx0fVxuPC9zY3JpcHQ+XG5cbjxzdHlsZT5cbjwvc3R5bGU+XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///17\n");
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      params: {\n        limit: 30,\n        order: \"new\",\n        skip: 0 },\n\n      banner: [],\n      album: [] };\n\n  },\n  mounted: function mounted() {\n    //修改页面的标题\n    uni.setNavigationBarTitle({\n      title: \"专辑\" });\n\n    this.getList();\n  },\n  methods: {\n    getList: function getList() {var _this = this;\n      this.request({\n        url: \"http://157.122.54.189:9088/image/v1/wallpaper/album\",\n        data: this.params }).\n\n      then(function (result) {\n\n        _this.banner = result.res.banner;\n        _this.album = result.res.album;\n        __f__(\"log\", _this.banner.length, \" at pages/home/home-album/index.vue:43\");\n      });\n    } } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 33)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvaG9tZS9ob21lLWFsYnVtL2luZGV4LnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7O0FBYUE7QUFDQSxNQURBLGtCQUNBO0FBQ0E7QUFDQTtBQUNBLGlCQURBO0FBRUEsb0JBRkE7QUFHQSxlQUhBLEVBREE7O0FBTUEsZ0JBTkE7QUFPQSxlQVBBOztBQVNBLEdBWEE7QUFZQSxTQVpBLHFCQVlBO0FBQ0E7QUFDQTtBQUNBLGlCQURBOztBQUdBO0FBQ0EsR0FsQkE7QUFtQkE7QUFDQSxXQURBLHFCQUNBO0FBQ0E7QUFDQSxrRUFEQTtBQUVBLHlCQUZBOztBQUlBLFVBSkEsQ0FJQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQSxPQVRBO0FBVUEsS0FaQSxFQW5CQSxFIiwiZmlsZSI6IjE3LmpzIiwic291cmNlc0NvbnRlbnQiOlsiPHRlbXBsYXRlPlxyXG5cdDx2aWV3PlxyXG5cdFx0PHN3aXBlciA6aW5kaWNhdG9yLWRvdHM9XCJ0cnVlXCIgOmF1dG9wbGF5PVwidHJ1ZVwiIDppbnRlcnZhbD1cIjMwMDBcIiA6ZHVyYXRpb249XCIxMDAwXCI+XHJcblx0XHRcdDxzd2lwZXItaXRlbSB2LWZvcj1cIml0ZW0gaW4gYmFubmVyXCIgOmtleT1cIml0ZW0uaWRcIj5cclxuXHRcdFx0XHQ8dmlldyBjbGFzcz1cInN3aXBlci1pdGVtXCI+XHJcblx0XHRcdFx0XHQ8aW1hZ2UgOnNyYz1cIml0ZW0udGh1bWJcIiBtb2RlPVwid2lkdGhGaXhcIj48L2ltYWdlPlxyXG5cdFx0XHRcdDwvdmlldz5cclxuXHRcdFx0PC9zd2lwZXItaXRlbT5cclxuXHRcdDwvc3dpcGVyPlxyXG5cdDwvdmlldz5cbjwvdGVtcGxhdGU+XG5cbjxzY3JpcHQ+XHJcblx0ZXhwb3J0IGRlZmF1bHQge1xyXG5cdFx0ZGF0YSgpIHtcclxuXHRcdFx0cmV0dXJuIHtcclxuXHRcdFx0XHRwYXJhbXM6IHtcclxuXHRcdFx0XHRcdGxpbWl0OjMwLFxyXG5cdFx0XHRcdFx0b3JkZXI6XCJuZXdcIixcclxuXHRcdFx0XHRcdHNraXA6MFxyXG5cdFx0XHRcdH0sXHJcblx0XHRcdFx0YmFubmVyOltdLFxyXG5cdFx0XHRcdGFsYnVtOltdXHJcblx0XHRcdH1cclxuXHRcdH0sXHJcblx0XHRtb3VudGVkKCkge1xyXG5cdFx0XHQvL+S/ruaUuemhtemdoueahOagh+mimFxyXG5cdFx0XHR1bmkuc2V0TmF2aWdhdGlvbkJhclRpdGxlKHtcclxuXHRcdFx0XHR0aXRsZTpcIuS4k+i+kVwiXHJcblx0XHRcdH0pXHJcblx0XHRcdHRoaXMuZ2V0TGlzdCgpXHJcblx0XHR9LFxyXG5cdFx0bWV0aG9kczp7XHJcblx0XHRcdGdldExpc3QoKSB7XHJcblx0XHRcdFx0dGhpcy5yZXF1ZXN0KHtcclxuXHRcdFx0XHRcdHVybDpcImh0dHA6Ly8xNTcuMTIyLjU0LjE4OTo5MDg4L2ltYWdlL3YxL3dhbGxwYXBlci9hbGJ1bVwiLFxyXG5cdFx0XHRcdFx0ZGF0YTp0aGlzLnBhcmFtc1xyXG5cdFx0XHRcdH0pXHJcblx0XHRcdFx0LnRoZW4oKHJlc3VsdCk9PiB7XHJcblx0XHRcdFx0XHJcblx0XHRcdFx0XHR0aGlzLmJhbm5lciA9IHJlc3VsdC5yZXMuYmFubmVyXHJcblx0XHRcdFx0XHR0aGlzLmFsYnVtID0gcmVzdWx0LnJlcy5hbGJ1bVxyXG5cdFx0XHRcdFx0Y29uc29sZS5sb2codGhpcy5iYW5uZXIubGVuZ3RoKVxyXG5cdFx0XHRcdH0pXHJcblx0XHRcdH1cclxuXHRcdH1cclxuXHR9XG48L3NjcmlwdD5cblxuPHN0eWxlPlxuPC9zdHlsZT5cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///17\n");
 
 /***/ }),
 /* 18 */
