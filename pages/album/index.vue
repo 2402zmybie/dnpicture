@@ -17,6 +17,12 @@
 				{{ album.desc }}
 			</text>
 		</view>
+		<!-- 列表图片 -->
+		<view class="album-list">
+			<view class="album-item" v-for="(item,index) in wallpaper" :key="item.id">
+				<image :src="item.thumb + item.rule.replace('$<Height>',360)" mode="widthFix"></image>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -32,7 +38,8 @@
 				},
 				id:-1,
 				album:{},
-				wallpaper:[]
+				wallpaper:[],
+				hasMore:true
 				
 			}
 		},
@@ -47,11 +54,37 @@
 					data:this.params
 				})
 				.then((result)=> {
-					this.album = result.res.album
-					this.wallpaper = result.res.wallpaper
+					if(Object.keys(this.album).length === 0) {
+						//album是个空对象
+						this.album = result.res.album
+						
+					}
+					
+					if(result.res.wallpaper.length === 0) {
+						this.hasMore = false;
+						uni.showToast({
+							title: '没有更多数据了',
+							icon:"none"
+						});
+						return;
+					}
+					this.wallpaper = [...this.wallpaper, ...result.res.wallpaper]
 				})
 			}
 		},
+		//整个页面触底回调
+		onReachBottom() {
+			if(this.hasMore) {
+				this.params.first = 0;
+				this.params.skip += this.params.limit;
+				this.getList()
+			}else {
+				uni.showToast({
+					title: '没有更多数据了',
+					icon:"none"
+				});
+			}
+		}
 	}
 </script>
 
@@ -101,6 +134,19 @@
 	}
 	.album-author-desc {
 		
+	}
+}
+
+.album-list {
+	//父盒子成flex盒子并且换行
+	display: flex;
+	flex-wrap: wrap;
+	.album-item {
+		width: 33.33%;
+		border: 3rpx solid #FFFFFF;
+		image {
+			
+		}
 	}
 }
 </style>

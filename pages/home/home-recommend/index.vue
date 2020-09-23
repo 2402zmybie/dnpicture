@@ -73,6 +73,10 @@
 					//判断还有没有下一页的数据了
 					if(result.res.vertical.length === 0) {
 						this.hasMore = false;
+						uni.showToast({
+							title: '没有更多数据了',
+							icon:"none"
+						});
 						return;
 					}
 					

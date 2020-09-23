@@ -74,4 +74,15 @@
   font-size: 26rpx;
   font-weight: 600;
 }
+.album-list.data-v-7a15b449 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.album-list .album-item.data-v-7a15b449 {
+  width: 33.33%;
+  border: 3rpx solid #FFFFFF;
+}
 
