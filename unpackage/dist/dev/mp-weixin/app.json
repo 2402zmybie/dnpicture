@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/album/index",
     "pages/home/index",
     "pages/horizontal/index",
     "pages/mine/index",
     "pages/search/index",
     "pages/video/index",
-    "pages/album/index",
     "pages/imgDetail/index"
   ],
   "subPackages": [],

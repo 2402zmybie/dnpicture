@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "专辑详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "go-detail": "/components/goDetail"
+  }
 }

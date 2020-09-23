@@ -20,14 +20,20 @@
 		<!-- 列表图片 -->
 		<view class="album-list">
 			<view class="album-item" v-for="(item,index) in wallpaper" :key="item.id">
-				<image :src="item.thumb + item.rule.replace('$<Height>',360)" mode="widthFix"></image>
+				<go-detail :list="wallpaper" :index="index">
+					<image :src="item.thumb + item.rule.replace('$<Height>',360)" mode="widthFix"></image>
+				</go-detail>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import goDetail from '../../components/goDetail.vue'
 	export default {
+		components:{
+			goDetail
+		},
 		data() {
 			return {
 				params: {
@@ -44,8 +50,9 @@
 			}
 		},
 		onLoad(options) {
-			this.id = options.id
-			console.log(`专辑详情id:${this.id}`)
+			// this.id = options.id
+			// console.log(`专辑详情id:${this.id}`)
+			this.id = "5d5f8e45e7bce75ae7fb8278"
 			this.getList()
 		},
 		methods: {

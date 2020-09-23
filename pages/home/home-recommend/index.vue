@@ -35,7 +35,10 @@
 			</view>
 			<view class="hots-content" >
 				<view class="hots-content-item" v-for="(item,index) in hots" :key="item.id">
-					<image :src="item.thumb" mode="widthFix" ></image>
+					<go-detail :list="hots" :index="index">
+						<image :src="item.thumb" mode="widthFix" ></image>
+					</go-detail>
+					
 				</view>
 			</view>
 		</view>
