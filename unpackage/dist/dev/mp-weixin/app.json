@@ -5,7 +5,8 @@
     "pages/mine/index",
     "pages/search/index",
     "pages/video/index",
-    "pages/album/index"
+    "pages/album/index",
+    "pages/imgDetail/index"
   ],
   "subPackages": [],
   "window": {

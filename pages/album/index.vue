@@ -45,6 +45,7 @@
 		},
 		onLoad(options) {
 			this.id = options.id
+			console.log(`专辑详情id:${this.id}`)
 			this.getList()
 		},
 		methods: {

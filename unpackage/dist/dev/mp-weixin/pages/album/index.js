@@ -195,6 +195,7 @@ var _default =
   },
   onLoad: function onLoad(options) {
     this.id = options.id;
+    console.log("\u4E13\u8F91\u8BE6\u60C5id:".concat(this.id));
     this.getList();
   },
   methods: {
