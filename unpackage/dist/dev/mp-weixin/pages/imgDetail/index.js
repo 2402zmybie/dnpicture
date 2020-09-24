@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 119));
 
 
 
@@ -243,133 +243,106 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _moment = _interopRequireDefault(__webpack_require__(/*! ../../utils/moment.js */ 66));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
+var _moment = _interopRequireDefault(__webpack_require__(/*! ../../utils/moment.js */ 66));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 //设置语言为中文
-_moment.default.locale("zh-cn");var swiperAction = function swiperAction() {__webpack_require__.e(/*! require.ensure | components/swiperAction */ "components/swiperAction").then((function () {return resolve(__webpack_require__(/*! ../../components/swiperAction.vue */ 106));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { swiperAction: swiperAction }, onLoad: function onLoad() {//页面挂载完毕的时候 打印一下全局存储的数据
-    console.log(getApp().globalData.imgList); //解构全局存储的数据
-    var imgIndex = getApp().globalData.imgIndex;this.imgIndex = imgIndex;this.getData();}, data: function data() {return { imgList: [], //图片信息对象 包含着用户头像等
-      imgDetail: {}, album: [], hot: [], comment: [], //图片的索引
-      imgIndex: 0 };}, methods: { //给当前页面赋值
-    getData: function getData() {var imgList = getApp().globalData.imgList;this.imgList = imgList;this.imgDetail = imgList[this.imgIndex]; //xxx年前的数据(时间格式化)
-      this.imgDetail.cnTime = (0, _moment.default)(this.imgDetail.atime * 1000).fromNow(); //获取评论数据
-      this.getComments(this.imgDetail.id);}, getComments: function getComments(id) {var _this = this;var url = "http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/".concat(id, "/comment");console.log(url);this.request({ "url": url }).then(function (result) {_this.album = result.res.album; //给hot数组中的对象添加一个时间属性 xxx月前
-        result.res.hot.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});_this.hot = result.res.hot; //给comment数组中的对象添加一个时间属性 xxx月前
-        result.res.comment.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});_this.comment = result.res.comment;console.log("\u6700\u70ED\u8BC4\u8BBA\u6761\u6570:".concat(_this.hot.length));console.log("\u6700\u65B0\u8BC4\u8BBA\u6761\u6570:".concat(_this.comment.length));});}, //滑动事件
-    handleSwiperAction: function handleSwiperAction(e) {/**
+_moment.default.locale("zh-cn");var swiperAction = function swiperAction() {__webpack_require__.e(/*! require.ensure | components/swiperAction */ "components/swiperAction").then((function () {return resolve(__webpack_require__(/*! ../../components/swiperAction.vue */ 106));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+{
+  components: {
+    swiperAction: swiperAction },
+
+  onLoad: function onLoad() {
+    //页面挂载完毕的时候 打印一下全局存储的数据
+    console.log(getApp().globalData.imgList);
+    //解构全局存储的数据
+    var imgIndex = getApp().globalData.imgIndex;
+    this.imgIndex = imgIndex;
+    this.getData();
+  },
+  data: function data() {
+    return {
+      imgList: [],
+      //图片信息对象 包含着用户头像等
+      imgDetail: {},
+      album: [],
+      hot: [],
+      comment: [],
+      //图片的索引
+      imgIndex: 0 };
+
+  },
+  methods: {
+    //给当前页面赋值
+    getData: function getData() {var
+      imgList = getApp().globalData.imgList;
+      this.imgList = imgList;
+      this.imgDetail = imgList[this.imgIndex];
+
+      //xxx年前的数据(时间格式化)
+      this.imgDetail.cnTime = (0, _moment.default)(this.imgDetail.atime * 1000).fromNow();
+
+      //获取评论数据
+      this.getComments(this.imgDetail.id);
+    },
+    getComments: function getComments(id) {var _this = this;
+      var url = "http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/".concat(id, "/comment");
+      console.log(url);
+
+      this.request({
+        "url": url }).
+
+      then(function (result) {
+        _this.album = result.res.album;
+        //给hot数组中的对象添加一个时间属性 xxx月前
+        result.res.hot.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});
+        _this.hot = result.res.hot;
+        //给comment数组中的对象添加一个时间属性 xxx月前
+        result.res.comment.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});
+        _this.comment = result.res.comment;
+        console.log("\u6700\u70ED\u8BC4\u8BBA\u6761\u6570:".concat(_this.hot.length));
+        console.log("\u6700\u65B0\u8BC4\u8BBA\u6761\u6570:".concat(_this.comment.length));
+      });
+    },
+    //滑动事件
+    handleSwiperAction: function handleSwiperAction(e) {
+      /**
                                                          * 用户左滑 imgIndex++
                                                          * 用户右滑 imgIndex--
-                                                         */if (e.direction === "left" && this.imgIndex < this.imgList.length - 1) {this.imgIndex++;this.getData();} else if (e.direction === "right" && this.imgIndex > 0) {this.imgIndex--;this.getData();} else {uni.showToast({ title: '没有数据了', icon: "none" });}} } };exports.default = _default;
+                                                         */
+      if (e.direction === "left" && this.imgIndex < this.imgList.length - 1) {
+        this.imgIndex++;
+        this.getData();
+      } else if (e.direction === "right" && this.imgIndex > 0) {
+        this.imgIndex--;
+        this.getData();
+      } else {
+        uni.showToast({
+          title: '没有数据了',
+          icon: "none" });
+
+      }
+    },
+    //下载图片
+    handleDownload: function handleDownload() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result1, tempFilePath, result2;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  uni.showLoading({
+                    title: "下载中" }));case 2:_context.next = 4;return (
+
+
+                  uni.downloadFile({ url: _this2.imgDetail.img }));case 4:result1 = _context.sent;
+                tempFilePath = result1[1].tempFilePath;
+                //2 将小程序内存中的临时文件下载到本地上
+                result2 = uni.saveImageToPhotosAlbum({ filePath: tempFilePath });
+                // console.log(result2)
+                // console.log("下载成功")
+                uni.hideLoading();_context.next = 10;return (
+                  uni.showToast({
+                    title: "下载成功" }));case 10:case "end":return _context.stop();}}}, _callee);}))();
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

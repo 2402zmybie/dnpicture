@@ -45,7 +45,7 @@
 					return;
 				}
 				//上下滑动距离过长
-				if(Math.abs(this.endY - this.startY) > 50) {
+				if(Math.abs(this.endY - this.startY) > 10) {
 					return
 				}
 				//滑动方向

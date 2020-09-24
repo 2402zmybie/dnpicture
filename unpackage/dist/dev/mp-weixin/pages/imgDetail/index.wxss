@@ -215,4 +215,40 @@
 .new .comment-title .iconpinglun.data-v-0d480be4 {
   color: green !important;
 }
+.container.data-v-0d480be4 {
+  padding-bottom: 105rpx;
+}
+.container .download.data-v-0d480be4 {
+  position: fixed;
+  background: #FFFFFF;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  width: 750rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.container .download .download-btn.data-v-0d480be4 {
+  width: 90%;
+  height: 80%;
+  background: #d52a7e;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #FFFFFF;
+}
 

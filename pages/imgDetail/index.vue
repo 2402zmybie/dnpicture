@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="container">
 		<view class="user-info">
 			<view class="user-icon">
 				<image :src="imgDetail.user.avatar" mode="widthFix"></image>
@@ -107,6 +107,10 @@
 				</view>
 			</view>
 		</view>
+		<!-- 下载 -->
+		<view class="download">
+			<view class="download-btn" @tap="handleDownload">下载图片</view>
+		</view>
 	</view>
 </template>
 
@@ -189,6 +193,23 @@
 						icon:"none"
 					});
 				}
+			},
+			//下载图片
+			async handleDownload() {
+				await uni.showLoading({
+					title:"下载中"
+				})
+				//1 将远程文件下载到小程序内存中 tempFilePath
+				const result1 = await uni.downloadFile({url:this.imgDetail.img})
+				const {tempFilePath} = result1[1];
+				//2 将小程序内存中的临时文件下载到本地上
+				const result2 = uni.saveImageToPhotosAlbum({filePath:tempFilePath})
+				// console.log(result2)
+				// console.log("下载成功")
+				uni.hideLoading();
+				await uni.showToast({
+					title:"下载成功"
+				})
 			}
 		}
 	}
@@ -362,4 +383,31 @@
 	}
 	
 }
+
+// 下载图片
+.container {
+	padding-bottom: 105rpx;
+	.download {
+		position: fixed;
+		background: #FFFFFF;
+		bottom: 0;
+		right: 0;
+		height: 100rpx;
+		width: 750rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.download-btn{
+			width: 90%;
+			height: 80%;
+			background: $color;
+			font-weight: 600;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #FFFFFF;
+		}
+	}
+}
+
 </style>
