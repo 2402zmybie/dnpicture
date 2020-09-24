@@ -108,7 +108,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/goDetail":"components/goDetail","pages/home/home-recommend/index":"pages/home/home-recommend/index","components/uni-segmented-control/uni-segmented-control":"components/uni-segmented-control/uni-segmented-control","pages/home/home-album/index":"pages/home/home-album/index","pages/home/home-category/index":"pages/home/home-category/index","pages/home/home-new/index":"pages/home/home-new/index"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"pages/home/home-recommend/index":"pages/home/home-recommend/index","components/uni-segmented-control/uni-segmented-control":"components/uni-segmented-control/uni-segmented-control","pages/home/home-album/index":"pages/home/home-album/index","pages/home/home-category/index":"pages/home/home-category/index","pages/home/home-new/index":"pages/home/home-new/index","components/goDetail":"components/goDetail"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

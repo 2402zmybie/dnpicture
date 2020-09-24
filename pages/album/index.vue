@@ -50,9 +50,9 @@
 			}
 		},
 		onLoad(options) {
-			// this.id = options.id
+			this.id = options.id
 			// console.log(`专辑详情id:${this.id}`)
-			this.id = "5d5f8e45e7bce75ae7fb8278"
+			// this.id = "5d5f8e45e7bce75ae7fb8278"
 			this.getList()
 		},
 		methods: {

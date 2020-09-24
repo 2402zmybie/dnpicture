@@ -80,4 +80,136 @@
   -webkit-align-items: center;
           align-items: center;
 }
+.album-wrap .album-title.data-v-0d480be4 {
+  padding-top: 20rpx;
+  font-size: 30rpx;
+  color: #000000;
+}
+.album-wrap .album-list .album-item.data-v-0d480be4 {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+}
+.album-wrap .album-list .album-item .album-avater image.data-v-0d480be4 {
+  width: 180rpx;
+  height: 180rpx;
+}
+.album-wrap .album-list .album-item .album-desc.data-v-0d480be4 {
+  margin-left: 20rpx;
+}
+.album-wrap .album-list .album-item .album-desc .album-desc-icon.data-v-0d480be4 {
+  width: 100rpx;
+  height: 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background: #d52a7e;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 24rpx;
+}
+.album-wrap .album-list .album-item .album-desc .album-desc-name.data-v-0d480be4 {
+  padding-top: 10rpx;
+  font-size: 30rpx;
+}
+.album-wrap .album-list .album-item .iconfont.data-v-0d480be4 {
+  position: absolute;
+  top: 50%;
+  right: 40rpx;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.comment .comment-title.data-v-0d480be4 {
+  padding: 20rpx;
+}
+.comment .comment-title .iconfont.data-v-0d480be4 {
+  font-size: 32rpx;
+  color: #d52a7e;
+}
+.comment .comment-title .comment-test.data-v-0d480be4 {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #AAAAAA;
+}
+.comment .comment-list .comment-item.data-v-0d480be4 {
+  padding: 10rpx 6rpx;
+  border-bottom: 6rpx solid #CCCCCC;
+}
+.comment .comment-list .comment-item .comment-user.data-v-0d480be4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.comment .comment-list .comment-item .comment-user .user-avater-wrap.data-v-0d480be4 {
+  border: 1rpx solid yellow;
+  width: 10%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.comment .comment-list .comment-item .comment-user .user-avater-wrap image.data-v-0d480be4 {
+  width: 90%;
+}
+.comment .comment-list .comment-item .comment-user .user-wrap.data-v-0d480be4 {
+  margin-left: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.comment .comment-list .comment-item .comment-user .user-wrap .user-name.data-v-0d480be4 {
+  font-size: 24rpx;
+  color: #000000;
+}
+.comment .comment-list .comment-item .comment-user .user-wrap .user-time.data-v-0d480be4 {
+  font-size: 20rpx;
+  color: #AAAAAA;
+}
+.comment .comment-list .comment-item .comment-user .user-badge image.data-v-0d480be4 {
+  width: 30rpx;
+  display: inline-block;
+}
+.comment .comment-list .comment-item .comment-desc.data-v-0d480be4 {
+  margin-left: 10%;
+  padding: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.comment .comment-list .comment-item .comment-desc .comment-desc.data-v-0d480be4 {
+  color: #000000;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.comment .comment-list .comment-item .comment-desc .comment-like.data-v-0d480be4 {
+  font-size: 24rpx;
+  color: #CCCCCC;
+}
 
