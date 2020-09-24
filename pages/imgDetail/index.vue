@@ -9,8 +9,11 @@
 				<view class="user-time">{{ imgDetail.cnTime }}</view>
 			</view>
 		</view>
+		<!-- 高清大图 -->
 		<view class="image-wrap">
-			<image :src="imgDetail.newThumb" mode="widthFix"></image>
+			<swiper-action @swiperAction="handleSwiperAction">
+				<image :src="imgDetail.thumb" mode="widthFix"></image>
+			</swiper-action>
 		</view>
 		<view class="rank-collection">
 			<view class="rank">
@@ -21,10 +24,10 @@
 			</view>
 		</view>
 		<!-- 专辑 -->
-		<view class="album-wrap">
+		<view class="album-wrap" v-if="album.length">
 			<view class="album-title">相关</view>
 			<view class="album-list">
-				<view class="album-item" v-for="(item,index) in album">
+				<view class="album-item" v-for="(item,index) in album" :key="index">
 					<view class="album-avater">
 						<image :src="item.cover" mode="aspectFill"></image>
 					</view>
@@ -37,10 +40,44 @@
 			</view>
 		</view>
 		<!-- 最热评论 -->
-		<view class="comment hot">
+		<view class="comment hot" v-if="hot.length">
 			<view class="comment-title">
-				<text class="iconfont iconhot1"></text>
+				<text class="iconfont iconhot1"></text> 
 				<text class="comment-test">最热评论</text>
+			</view>
+			<view class="comment-list">
+				<view class="comment-item" v-for="(item,index) in hot" :key="item.id">
+					<view class="comment-user">
+						<view class="user-avater-wrap">
+							<image :src="item.user.avatar" mode="widthFix"></image>
+						</view>
+						<view class="user-wrap">
+							<text class="user-name">{{ item.user.name }}</text>
+							<text class="user-time">{{ item.cnTime }}</text>
+						</view>
+						<view class="user-badge">
+							<image 
+								mode="widthFix"
+								v-for="item2 in item.user.title"
+								:key="item2.icon"
+								:src="item2.icon" 
+								></image>
+						</view>
+					</view>
+					<view class="comment-desc">
+						<view class="comment-content">{{ item.content }}</view>
+						<view class="comment-like">
+							<text class="iconfont icondianzan">{{ item.size }}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 最新评论 -->
+		<view class="comment new" v-if="comment.length">
+			<view class="comment-title">
+				<text class="iconfont iconpinglun"></text> 
+				<text class="comment-test">最新评论</text>
 			</view>
 			<view class="comment-list">
 				<view class="comment-item" v-for="(item,index) in comment" :key="item.id">
@@ -50,7 +87,7 @@
 						</view>
 						<view class="user-wrap">
 							<text class="user-name">{{ item.user.name }}</text>
-							<text class="user-time">{{ item.atime }}</text>
+							<text class="user-time">{{ item.cnTime }}</text>
 						</view>
 						<view class="user-badge">
 							<image 
@@ -77,41 +114,83 @@
 	import moment from '../../utils/moment.js'
 	//设置语言为中文
 	moment.locale("zh-cn")
+	import swiperAction from '../../components/swiperAction.vue'
 	export default {
+		components:{
+			swiperAction
+		},
 		onLoad() {
 			//页面挂载完毕的时候 打印一下全局存储的数据
 			console.log(getApp().globalData.imgList)
 			//解构全局存储的数据
-			const { imgList,imgIndex} = getApp().globalData
-			this.imgDetail= imgList[imgIndex]
-			//imgDetail有数据了才处理图片
-			this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>',360);
-			//xxx年前的数据(时间格式化)
-			this.imgDetail.cnTime = moment(this.imgDetail.atime*1000).fromNow();
-			
-			const url = `http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/${imgList[imgIndex].id}/comment`;
-			console.log(url)
-			
-			this.request({
-				"url":url
-			})
-			.then((result)=> {
-				this.album = result.res.album
-				this.hot = result.res.hot
-				this.comment = result.res.comment
-				console.log(`最热评论条数:${this.hot.length}`)
-				console.log(`最新评论条数:${this.comment.length}`)
-			})
+			const { imgIndex} = getApp().globalData
+			this.imgIndex = imgIndex
+			this.getData()
 		},
 		data() {
 			return {
+				imgList:[],
 				//图片信息对象 包含着用户头像等
 				imgDetail: {},
 				album:[],
 				hot:[],
-				comment:[]
+				comment:[],
+				//图片的索引
+				imgIndex:0
 			}
 		},
+		methods:{
+			//给当前页面赋值
+			getData() {
+				const { imgList } = getApp().globalData
+				this.imgList = imgList
+				this.imgDetail= imgList[this.imgIndex]
+				
+				//xxx年前的数据(时间格式化)
+				this.imgDetail.cnTime = moment(this.imgDetail.atime*1000).fromNow();
+				
+				//获取评论数据
+				this.getComments(this.imgDetail.id)
+			},
+			getComments(id) {
+				const url = `http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/${id}/comment`;
+				console.log(url)
+				
+				this.request({
+					"url":url
+				})
+				.then((result)=> {
+					this.album = result.res.album
+					//给hot数组中的对象添加一个时间属性 xxx月前
+					result.res.hot.forEach(v=>v.cnTime=moment(v.atime*1000).fromNow())
+					this.hot = result.res.hot
+					//给comment数组中的对象添加一个时间属性 xxx月前
+					result.res.comment.forEach(v=>v.cnTime=moment(v.atime*1000).fromNow())
+					this.comment = result.res.comment
+					console.log(`最热评论条数:${this.hot.length}`)
+					console.log(`最新评论条数:${this.comment.length}`)
+				})
+			},
+			//滑动事件
+			handleSwiperAction(e) {
+				/**
+				 * 用户左滑 imgIndex++
+				 * 用户右滑 imgIndex--
+				 */
+				if(e.direction === "left" && this.imgIndex < this.imgList.length -1) {
+					this.imgIndex++;
+					this.getData()
+				}else if(e.direction === "right" && this.imgIndex > 0) {
+					this.imgIndex--;
+					this.getData()
+				}else {
+					uni.showToast({
+						title: '没有数据了',
+						icon:"none"
+					});
+				}
+			}
+		}
 	}
 </script>
 
@@ -271,9 +350,16 @@
 				}	
 			}
 		}
-		
-		
-		
 	}
+}
+
+//最新评论
+.new {
+	.comment-title {
+		.iconpinglun {
+			color: green !important;
+		}
+	}
+	
 }
 </style>

@@ -5,8 +5,13 @@
             "style" : {
             	"navigationBarTitleText":"首页"
             }
-        }
-		
+        },
+		{
+		    "path" : "pages/demo/index",
+		    "style" : {
+		    	"navigationBarTitleText":"学习触屏事件"
+		    }
+		}
         ,{
             "path" : "pages/horizontal/index",
             "style" : {

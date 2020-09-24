@@ -7851,7 +7851,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 58:
+/***/ 66:
 /*!********************************************************!*\
   !*** G:/AndroidCode/uni-app/dnpicture/utils/moment.js ***!
   \********************************************************/
@@ -12459,11 +12459,11 @@ module.exports = g;
   return hooks;
 
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! (webpack)/buildin/module.js */ 59)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! (webpack)/buildin/module.js */ 67)(module)))
 
 /***/ }),
 
-/***/ 59:
+/***/ 67:
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/

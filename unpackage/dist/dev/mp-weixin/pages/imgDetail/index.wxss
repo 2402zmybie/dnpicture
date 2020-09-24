@@ -212,4 +212,7 @@
   font-size: 24rpx;
   color: #CCCCCC;
 }
+.new .comment-title .iconpinglun.data-v-0d480be4 {
+  color: green !important;
+}
 
