@@ -86,3 +86,23 @@
   2 向父组件传递滑动方向
   
 
+8 下载图片
+   //下载图片
+   async handleDownload() {
+   	await uni.showLoading({
+   		title:"下载中"
+   	})
+   	//1 将远程文件下载到小程序内存中 tempFilePath
+   	const result1 = await uni.downloadFile({url:this.imgDetail.img})
+   	const {tempFilePath} = result1[1];
+   	//2 将小程序内存中的临时文件下载到本地上
+   	const result2 = uni.saveImageToPhotosAlbum({filePath:tempFilePath})
+   	// console.log(result2)
+   	// console.log("下载成功")
+   	uni.hideLoading();
+   	await uni.showToast({
+   		title:"下载成功"
+   	})
+   }
+  
+

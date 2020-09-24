@@ -48,6 +48,12 @@
 				"navigationBarTitleText":"图片详情"
 			}
 		}
+        ,{
+            "path" : "pages/imgCategory/index",
+            "style" : {
+				"navigationBarTitleText":"图片分类"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

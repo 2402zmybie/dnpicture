@@ -1,1 +1,1 @@
-<view>分类</view>
+<view class="home-category data-v-74a791f8"><block wx:for="{{category}}" wx:for-item="item" wx:for-index="index" wx:key="id"><view data-event-opts="{{[['tap',[['itemClick',['$0'],[[['category','id',item.id,'id']]]]]]]}}" class="category-item data-v-74a791f8" bindtap="__e"><image src="{{item.cover}}" mode="aspectFill" class="data-v-74a791f8"></image><text class="data-v-74a791f8">{{item.name}}</text></view></block></view>

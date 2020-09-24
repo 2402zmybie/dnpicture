@@ -7,7 +7,8 @@
     "pages/search/index",
     "pages/video/index",
     "pages/album/index",
-    "pages/imgDetail/index"
+    "pages/imgDetail/index",
+    "pages/imgCategory/index"
   ],
   "subPackages": [],
   "window": {
