@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/video/index",
     "pages/home/index",
     "pages/demo/index",
     "pages/horizontal/index",
     "pages/mine/index",
     "pages/search/index",
-    "pages/video/index",
     "pages/album/index",
     "pages/imgDetail/index",
     "pages/imgCategory/index"

@@ -1,1 +1,1 @@
-<view>视频</view>
+<view class="home-tab"><view class="home-tab-title"><view class="title-inner"><uni-segmented-control vue-id="26f4c051-1" current="{{current}}" values="{{$root.g0}}" style-type="text" active-color="#d4237a" data-event-opts="{{[['^clickItem',[['onClickItem']]]]}}" bind:clickItem="__e" bind:__l="__l"></uni-segmented-control></view><view class="iconfont iconsearch"></view></view><view class="home-tab-content">视频</view></view>
