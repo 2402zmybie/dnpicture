@@ -133,11 +133,19 @@ var render = function() {
   var g0 = _vm.items.map(function(v) {
     return v.title
   })
+  var a0 =
+    _vm.current < 4
+      ? {
+          url: _vm.items[_vm.current].url,
+          params: _vm.items[_vm.current].params
+        }
+      : null
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        g0: g0
+        g0: g0,
+        a0: a0
       }
     }
   )
@@ -174,38 +182,49 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var videoMain = function videoMain() {__webpack_require__.e(/*! require.ensure | pages/video/video-main/index */ "pages/video/video-main/index").then((function () {return resolve(__webpack_require__(/*! ./video-main/index.vue */ 137));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoCategory = function videoCategory() {__webpack_require__.e(/*! require.ensure | pages/video/video-category/index */ "pages/video/video-category/index").then((function () {return resolve(__webpack_require__(/*! ./video-category/index.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    videoMain: videoMain,
+    videoCategory: videoCategory },
+
   data: function data() {
     return {
       items: [
-      { title: "推荐" },
-      { title: "娱乐" },
-      { title: "最新" },
-      { title: "热门" },
-      { title: "分类" }],
+      { title: "推荐", url: "http://157.122.54.189:9088/videoimg/v1/videowp/featured", params: { limit: 30, skip: 0, order: "hot" } },
+      { title: "娱乐", url: "http://157.122.54.189:9088/videoimg/v1/videowp/category/59b25abbe7bce76bc834198a", params: { limit: 30, skip: 0, order: "new" } },
+      { title: "最新", url: "http://157.122.54.189:9088/videoimg/v1/videowp/videowp", params: { limit: 30, skip: 0, order: "new" } },
+      { title: "热门", url: "http://157.122.54.189:9088/videoimg/v1/videowp/videowp", params: { limit: 30, skip: 0, order: "hot" } },
+      { title: "分类", url: "http://157.122.54.189:9088/videoimg/v1/videowp/category", params: {} }],
 
-      current: 1 };
+      current: 0 };
 
   },
   methods: {
