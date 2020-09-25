@@ -183,6 +183,13 @@ var _default =
           icon: "none" });
 
       }
+    },
+    handleGoVideo: function handleGoVideo(item) {
+      //1 将数据存储到全局共享中
+      getApp().globalData.video = item;
+      uni.navigateTo({
+        url: '/pages/videoPlay/index' });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

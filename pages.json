@@ -55,6 +55,12 @@
 				"navigationBarTitleText":"图片分类"
 			}
         }
+        ,{
+            "path" : "pages/videoPlay/index",
+            "style" : {
+				"navigationBarTitleText":"视频播放"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

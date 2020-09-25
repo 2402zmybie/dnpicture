@@ -5,7 +5,7 @@
 	class="video-main"
 	@scrolltolower="handleScrolltolower"
 	>
-		<view class="video-item" v-for="(item,index) in videowp" :key="index">
+		<view class="video-item" v-for="(item,index) in videowp" :key="index" @tap="handleGoVideo(item)">
 			<image :src="item.img" mode="widthFix"></image>
 		</view>
 	</scroll-view>
@@ -67,6 +67,13 @@
 						icon:"none"
 					});
 				}
+			},
+			handleGoVideo(item) {
+				//1 将数据存储到全局共享中
+				getApp().globalData.video=item;
+				uni.navigateTo({
+					url: '/pages/videoPlay/index'
+				});
 			}
 		}
 		

@@ -8,7 +8,8 @@
     "pages/search/index",
     "pages/album/index",
     "pages/imgDetail/index",
-    "pages/imgCategory/index"
+    "pages/imgCategory/index",
+    "pages/videoPlay/index"
   ],
   "subPackages": [],
   "window": {
