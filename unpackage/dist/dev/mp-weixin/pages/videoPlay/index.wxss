@@ -61,6 +61,15 @@
           align-items: center;
   margin-right: 20rpx;
 }
+.video-play .video-tool .iconzhuanfa {
+  position: relative;
+}
+.video-play .video-tool .iconzhuanfa button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
 .video-play .video-wrap {
   display: -webkit-box;
   display: -webkit-flex;

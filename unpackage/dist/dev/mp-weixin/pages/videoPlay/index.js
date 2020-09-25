@@ -159,12 +159,18 @@ var _default =
 {
   data: function data() {
     return {
-      videoObj: {} };
+      videoObj: {},
+      //是否静音
+      muted: false };
 
   },
   onLoad: function onLoad() {
     this.videoObj = getApp().globalData.video;
-  } };exports.default = _default;
+  },
+  methods: {
+    handleMuted: function handleMuted() {
+      this.muted = !this.muted;
+    } } };exports.default = _default;
 
 /***/ }),
 

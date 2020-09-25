@@ -3,19 +3,19 @@
 		<image :src="videoObj.img" mode=""></image>
 		<!-- 工具栏 -->
 		<view class="video-tool">
-			<view class="iconfont iconshengyin"></view>
-			<view class="iconfont iconzhuanfa"></view>
+			<view :class="['iconfont', muted? 'iconjingyin':'iconshengyin']" @tap="handleMuted"></view>
+			<view class="iconfont iconzhuanfa" >
+				<button open-type="share">转发</button>
+			</view>
 		</view>
 		<!-- 视频 -->
 		<view class="video-wrap">
 			<video :src="videoObj.video" 
 			controls
-			objectFit="fill"></video>
+			objectFit="fill"
+			:muted="muted"
+			></video>
 		</view>
-		<view>
-		                <video id="myVideo" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4"
-		                   controls></video>
-		            </view>
 		<!-- 下载 -->
 		<view class="download">
 			<view class="download-btn">下载高清</view>
@@ -27,11 +27,18 @@
 	export default {
 		data() {
 			return {
-				videoObj:{}
+				videoObj:{},
+				//是否静音
+				muted:false
 			};
 		},
 		onLoad() {
 			this.videoObj = getApp().globalData.video
+		},
+		methods:{
+			handleMuted() {
+				this.muted = !this.muted
+			}
 		}
 	}
 </script>
@@ -61,6 +68,16 @@
 			justify-content: center;
 			align-items: center;
 			margin-right: 20rpx;
+		}
+		.iconzhuanfa {
+			position: relative;
+			//button的宽高和父元素一样,并且透明度一样
+			button {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+			}
 		}
 	}
 	.video-wrap {
