@@ -18,7 +18,7 @@
 		</view>
 		<!-- 下载 -->
 		<view class="download">
-			<view class="download-btn">下载高清</view>
+			<view class="download-btn" @tap="handleDownload">下载高清</view>
 		</view>
 	</view>
 </template>
@@ -36,8 +36,26 @@
 			this.videoObj = getApp().globalData.video
 		},
 		methods:{
+			//控制是否静音
 			handleMuted() {
 				this.muted = !this.muted
+			},
+			//下载视频
+			async handleDownload() {
+				await uni.showLoading({
+					title:"下载中"
+				})
+				// 1将远程文件下载到小程序内存中
+				const result =  await uni.downloadFile({url:this.videoObj.video})
+				const {tempFilePath} = result[1]
+				// 2将内存中的文件下载到本地上
+				await uni.saveVideoToPhotosAlbum({
+					filePath:tempFilePath
+				});
+				uni.hideLoading()
+				await uni.showToast({
+					title:"下载成功"
+				})
 			}
 		}
 	}

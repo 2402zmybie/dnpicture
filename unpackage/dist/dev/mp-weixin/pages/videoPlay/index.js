@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 119));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -168,9 +168,28 @@ var _default =
     this.videoObj = getApp().globalData.video;
   },
   methods: {
+    //控制是否静音
     handleMuted: function handleMuted() {
       this.muted = !this.muted;
+    },
+    //下载视频
+    handleDownload: function handleDownload() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result, tempFilePath;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  uni.showLoading({
+                    title: "下载中" }));case 2:_context.next = 4;return (
+
+
+                  uni.downloadFile({ url: _this.videoObj.video }));case 4:result = _context.sent;
+                tempFilePath = result[1].tempFilePath;
+                // 2将内存中的文件下载到本地上
+                _context.next = 8;return uni.saveVideoToPhotosAlbum({
+                  filePath: tempFilePath });case 8:
+
+                uni.hideLoading();_context.next = 11;return (
+                  uni.showToast({
+                    title: "下载成功" }));case 11:case "end":return _context.stop();}}}, _callee);}))();
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
